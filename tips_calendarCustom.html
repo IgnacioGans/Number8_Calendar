@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar UI</title>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css" />
+	<style>
+		input{
+			margin-bottom: 20px;
+		}
+		img{
+			float: right
+			vertical-align:top;
+			display: inline-block;
+			position: absolute;
+		}
+		.field{
+			width:300px;
+		}
+
+	</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.8.16/jquery-ui.min.js"></script>
+
+</head>
+<body>
+<div class="field"><label for="">Start Date:</label>
+<input type="text" class="startDate" />
+<br>	</div>
+<div class="field"><label for="">Number of days:</label>
+<input class="numberOfDays" type="text" placeholder=""><br>
+<span>Set value by <b>"Number Of Days" is</b> : <span class="rk_MaxDate"></span></span> <br>	</div>
+<div class="field"><label for="">Code country:</label>
+<input type="text" placeholder="US" value="US"></div>
+<div class="z"></div>
+<script>
+	
+
+	$(document).ready(function() {
+	
+	$('.z').datepicker({
+	    minDate:0,
+	    maxDate:365,
+	    inline: true,
+	    altField: '.startDate'		
+	});
+
+	$('.startDate').change(function(){
+	    $('.z').datepicker('setDate', $(this).val());
+	});
+
+	
+	$('.numberOfDays').change(function(){
+		var rk_c =$(this).val();
+		var prueba =$(".z").datepicker('option', 'maxDate', rk_c ); 
+		//console.log("change input --c--" + rk_c);
+		//console.log(prueba);
+	    $(".z").datepicker('option', 'maxDate', rk_c );
+	    var value_MaxDate =$('.z').datepicker("option", "maxDate");
+	    $('.rk_MaxDate').html(value_MaxDate, function(){
+	    	console.log("change value??")
+	    });
+	});	
+	});
+
+</script>
+</body>
+</html>
