@@ -1,0 +1,42 @@
+.calendarUI.rk_flexboxCenter{
+	display: flex;
+	justify-content: center;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: 1px solid #d3d3d3;
+    background: unset;
+    font-weight: normal;
+    color: black;
+}
+ .ui-datepicker td {
+    border: 0;
+    padding: 1px;
+    background-color: #c5dc96;
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled{
+	opacity: 1;
+	background-color: #cccccc;
+	/* border: 1px solid white; */
+}
+.ui-state-disabled .ui-state-default, .ui-widget-content .ui-state-disabled .ui-state-default{
+	color: #cccccc;
+}
+
+
+ .ui-datepicker-week-end.ui-datepicker-unselectable.ui-state-disabled .ui-state-default{
+ 	/* background-color: unset; */
+ } 
+
+  .ui-datepicker-week-end.ui-datepicker-unselectable.ui-state-disabled .ui-state-default, 
+  .ui-widget-content .ui-datepicker-week-end.ui-datepicker-unselectable.ui-state-disabled .ui-state-default{
+	background-color: yellow;
+	color:yellow;
+ }
+  tbody .ui-datepicker-week-end{
+  	background-color: yellow;
+  } 
+
+  .ui-state-default.ui-state-highlight.ui-state-active{
+  	background-color:orange!important;
+  }
+
