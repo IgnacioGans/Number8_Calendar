@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar UI</title>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css" />
+	<style>
+		input{
+			margin-bottom: 20px;
+		}
+		img{
+			float: right
+			vertical-align:top;
+			display: inline-block;
+			position: absolute;
+		}
+		.field{
+			width:300px;
+		}
+
+	</style>
+
+
+</head>
+<body>
+<div class="field"><label for="">Start Date:</label>
+<input id="rk_valueStarDate" type="text" placeholder="" > <br>	</div>
+
+<div class="field"><label for="">Number of days:</label>
+<input type="text" placeholder=""> <br>	</div>
+
+<div class="field"><label for="">Code country:</label>
+<input type="text" placeholder="US"></div>
+	<div style="display:inline-block; vertical-align: top" id="date" class="rk_calendar"></div>
+	<img  src="img/calendarTask.png" alt="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+// $( function() {
+// 	$( ".rk_calendar" ).datepicker(
+// 		{
+// 			showOtherMonths: true,
+// 			selectOtherMonths: true
+// 			//defaultDate: +7
+// 		}
+// 	);
+
+// } );
+
+
+var disabledDays = [];
+
+/* utility functions */
+function nationalDays(date) {
+	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+	//console.log('Checking (raw): ' + m + '-' + d + '-' + y);
+	for (i = 0; i < disabledDays.length; i++) {
+		if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1 || new Date() > date) {
+			//console.log('bad:  ' + (m+1) + '-' + d + '-' + y + ' / ' + disabledDays[i]);
+			return [false];
+		}
+	}
+	//console.log('good:  ' + (m+1) + '-' + d + '-' + y);
+	return [true];
+}
+function noWeekendsOrHolidays(date) {
+	var noWeekend = jQuery.datepicker.noWeekends(date);
+	return noWeekend[0] ? nationalDays(date) : noWeekend;
+}
+
+/* create datepicker */
+
+
+console.log($("#rk_valueStarDate").val());
+var userField = $("#rk_valueStarDate").val();
+
+
+jQuery(document).ready(function() {
+	jQuery('#date').datepicker({
+		minDate: new Date(2010, 0, 1),
+		dateFormat: 'DD, MM, d, yy',
+		constrainInput: true,
+		beforeShowDay: noWeekendsOrHolidays,
+		defaultDate: userField
+	});
+});
+</script>
+</body>
+</html>
