@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar Number8</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style-calendar.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.8.16/jquery-ui.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		  <div class="col-md-6 col-md-offset-3">
+		  	<div class="panel panel-default">
+		  		<div class="panel-heading">
+		  			 <div class="form-group">
+					    <label for="StartDate">Start Date:</label>
+					    <input type="text" class="form-control startDate" placeholder="Start Date">
+					  </div>
+					  <div class="row">
+						  <div class="col-md-6">
+						  	  <div class="form-group">
+							    <label for="NumberOfDays">Number Of Days:</label>
+							    <input type="text" class="form-control numberOfDays" placeholder="Number Of Days">
+							    <p class="text-info">The value has: <span class="rk_MaxDate"></span></p>
+							  </div>
+						  </div>
+						  <div class="col-md-6">
+						  	  <div class="form-group">
+							    <label for="CountryCode">Country Code</label>
+							    <input type="text" class="form-control" id="" value="US" placeholder="Country Code">
+							  </div>
+						  </div>
+					  </div>
+		  		</div>
+		  		<div class="panel-body">
+		  			<div class="calendarUI rk_flexboxCenter"></div>
+		  		</div>
+		  	</div>
+		  </div>
+		</div>
+	</div>
+<script src="js/calendar-custom.js"></script>
+</body>
+</html>
